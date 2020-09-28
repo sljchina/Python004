@@ -31,6 +31,6 @@ class MaoyanSpider(scrapy.Spider):
         # //div[@class="movie-brief-container"]/ul/li[@class="ellipsis"][3]/text()
         item = MaoyanItem()
         item['name'] = response.xpath('//div[@class="movie-brief-container"]/h1/text()').get()
-        itme['category'] = response.xpath('//div[@class="movie-brief-container"]/ul/li/a/text()').get()
+        item['category'] = response.xpath('//div[@class="movie-brief-container"]/ul/li/a/text()').get()
         item['date'] = response.xpath('//div[@class="movie-brief-container"]/ul/li[@class="ellipsis"][3]/text()').get
         yield item
