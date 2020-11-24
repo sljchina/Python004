@@ -55,9 +55,15 @@ class Dog(Animal):
 class Zoo:
     def __init__(self,name):
         self.name = name
-        self.animal = {}
-    def add_animal(self,object):
-        pass
+        self.animals = {}
+
+    def add_animal(self, animal):
+        animal_id = id(animal)
+        if animal_id not in self.animals.keys():
+            self.animals[animal_id] = animal
+            setattr(self, animal.__class__.__name__, True)
+        else:
+            print(f'[warning]id: {animal_id} 同一只动物（同一个动物实例）不能被重复添加')
 
 
 
