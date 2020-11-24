@@ -10,7 +10,7 @@ class Animal(metaclass=ABCMeta):
         self.animal_type = animal_type
         self.shape = shape
         self.nature = nature
-        if ((shape == '中等' or shape == '大型') and (animal_type == '食肉类型')):
+        if ((shape == '中等' or shape == '大型') and (animal_type == '食肉类型') and (nature == '性格兇猛')):
             self.is_fierce_animal = True
         else:
             self.is_fierce_animal = False
@@ -23,6 +23,9 @@ class Animal(metaclass=ABCMeta):
         pass
 
 class Cat(Animal):
+
+    say_someting = "miao miao miao"
+
     def __init__(self,name,animal_type,shape,nature):
         super().__init__(animal_type,shape,nature)
         self.name = name
@@ -30,22 +33,21 @@ class Cat(Animal):
             self.suitable_for_pet = False
         else:
             self.suitable_for_pet = True
-        self.say_someting = "miao miao miao"
-
     
     def animal_call(self):
         print(self.say_someting)
 
 class Dog(Animal):
+
+    say_someting = "wang wang wang"
+
     def __init__(self,name,animal_type,shape,nature):
         super().__init__(animal_type,shape,nature)
         self.name = name
-        if super.fierce_animal:
+        if super().fierce_animal:
             self.suitable_for_pet = False
         else:
             self.suitable_for_pet = True
-        self.say_someting = "wang wang wang"
-
 
     def animal_call(self):
         print(self.say_someting)
