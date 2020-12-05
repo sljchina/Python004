@@ -15,6 +15,7 @@ class Animal(metaclass=ABCMeta):
         else:
             self.is_fierce_animal = False
         # return self.is_fierce_animal
+    @property
     def fierce_animal(self):
         return self.is_fierce_animal
 
